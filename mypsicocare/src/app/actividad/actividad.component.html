@@ -1,0 +1,71 @@
+<section>
+  <h1>{{currentActivity.value}}</h1>
+  <article>
+    <div>
+      <p>{{currentActivity.description}}</p>
+      <div *ngIf="1 == currentActivity.aid">
+        <div>
+          <audio controls>
+            <source src="assets\media\podcastsa.mp3" type="audio/mp3">
+          </audio>
+        </div>
+      </div>
+      <div *ngIf="2 == currentActivity.aid">
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      <td>Important</td>
+                      <textarea style="height: 100px;" onclick="cleartext(1)" name="textito" id="cuentame1" name="comment"
+                      form="textform" required maxlength="500">Type here the thoughts that are IMPORTANT </textarea>
+                      <td>Not important</td>
+                      <textarea style="height: 100px;" onclick="cleartext(1)" name="textito" id="cuentame1" name="comment"
+                      form="textform" required maxlength="500">Type here the thoughts that are NOT IMPORTANT</textarea>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td >Urgent</td>
+                      <textarea style="height: 100px;" onclick="cleartext(1)" name="textito" id="cuentame1" name="comment"
+                      form="textform" required maxlength="500">Type here the thoughts that are URGENT</textarea>
+                      <td>Not Urgent</td>
+                      <textarea style="height: 100px;" onclick="cleartext(1)" name="textito" id="cuentame1" name="comment"
+                      form="textform" required maxlength="500">Type here the thoughts that are NOT URGENT</textarea>
+                  </tr>
+              </tbody>
+          </table> 
+      </div>
+      <div *ngIf="3 == currentActivity.aid">
+              
+        <div class="video">
+            <video class="responsive-video" controls (click)="toggleVideo()" #videoPlayer>
+                <source src="assets\media\ANXIOUS+_+Hazel+Hayes.mp4" type="video/mp4" />
+                <iframe width="300" height="300" type="video/mp4" frameborder="0" allowfullscreen></iframe>
+                Browser not supported
+            </video>
+        </div>
+      </div>
+      <div *ngIf="4 == currentActivity.aid">
+        <div id="clockdiv" class="center">
+          <div>
+            <span class="minutes">{{ minutes | number: '2.0' }}</span>
+            <div class="smalltext">Minutes</div>
+          </div>
+
+          <div>
+            <span class="seconds">{{ seconds | number: '2.0' }}</span>
+            <div class="smalltext">Seconds</div>
+          </div>
+        </div>
+        
+          <div class="row">
+            <div class="col s12" id="clockbutton">
+              <button (click)="togglePause()" class="btn waves-effect waves-light">
+                {{ buttonLabel }}
+              </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
